@@ -30,17 +30,17 @@ class WeatherScrapingController < ApplicationController
       if m == 0 #スタートの月
         (td_length-(@start_day-1)).times do |i|
           ave_temp = page.search("//*[@id='tablefix1']/tr[#{5+(@start_day-1)+i}]").search('td')[6].inner_text #７番目のtdタグが日平均気温
-          @temps << ave_temp #配列として@tempsに順に追加
+          @temps << ave_temp.delete("^0-9.-") #配列として@tempsに順に追加
         end
       elsif m == @term_month - 1 #最後の月
         @y_day_day.times do |i|
           ave_temp = page.search("//*[@id='tablefix1']/tr[#{5+i}]").search('td')[6].inner_text #７番目のtdタグが日平均気温
-          @temps << ave_temp #配列として@tempsに順に追加
+          @temps << ave_temp.delete("^0-9.-") #配列として@tempsに順に追加
         end
       else     #中間の月
         td_length.times do |i|
           ave_temp = page.search("//*[@id='tablefix1']/tr[#{5+i}]").search('td')[6].inner_text #７番目のtdタグが日平均気温
-          @temps << ave_temp #配列として@tempsに順に追加
+          @temps << ave_temp.delete("^0-9.-") #配列として@tempsに順に追加
         end
       end
 

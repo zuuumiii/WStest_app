@@ -1,12 +1,11 @@
 <h1> WeathrScraping</h1>
 <br>
 <div>スタート日<%=@start_date%></div>
-<div>終了日(本日)<%=@today%></div>
+<div>終了日(昨日)<%=@y_date%></div>
 <div></div>
 
-<div><%=@td_length%>aaaaa</div>
+<div><%=@term_month%>ヶ月</div>
 
-<div><%=@temps%></div>
-<div>データは<%=@temps.length%>日分</div>
+<div><%=@ave_temps%></div>
 <div>データは<%=@term+1%>日分</div>
-<h1>積算気温<%=@total_temp%>℃</h1>
+<h1>積算気温<%=@total_temp.floor(1).to_f%>℃</h1>

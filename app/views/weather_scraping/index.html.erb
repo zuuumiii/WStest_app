@@ -1,11 +1,11 @@
 <h1> WeathrScraping</h1>
 <br>
-<div>スタート日<%=@start_date%></div>
-<div>終了日(昨日)<%=@y_date%></div>
-<div></div>
 
-<div><%=@term_month%>ヶ月</div>
 
-<div><%=@ave_temps%></div>
-<div>データは<%=@term+1%>日分</div>
-<h1>積算気温<%=@total_temp.floor(1).to_f%>℃</h1>
+<% @wss.each do |ws|%>
+<div>------------------</div>
+<div><%=link_to  ws.name, weather_scraping_path(ws) %></div>
+<div>開始日<%= ws.start%></div>
+<div>名前<%= ws.name%></div>
+<div>積算温度<%= ws.accum%>℃</div>
+<% end %>

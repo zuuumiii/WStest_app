@@ -1,0 +1,2 @@
+class WeatherScraping < ApplicationRecord
+end

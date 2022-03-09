@@ -1,0 +1,16 @@
+<h1> WeathrScraping</h1>
+<br>
+<div>スタート日<%=@ws.start%></div>
+<div>終了日(昨日)<%= Date.yesterday %></div>
+
+
+
+<div><%= @ws.name%></div>
+<div><%= @ws.start%></div>
+<div><%= @ws.name%></div>
+
+
+<div><%=(Date.yesterday - @ws.start).to_i%>日間</div>
+
+
+<h1>積算気温<%=@ws.accum%>℃</h1>
